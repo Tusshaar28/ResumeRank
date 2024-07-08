@@ -14,8 +14,8 @@ from nltk.stem import PorterStemmer, WordNetLemmatizer
 #stemmer = PorterStemmer()
 lem = WordNetLemmatizer()
 
-
-# nltk.download('wordnet')
+nltk.download('stopwords')
+nltk.download('wordnet')
 # paths = 'resum'
 # pdff = [os.path.join(paths,f) for f in os.listdir(paths) if f.endswith('.pdf')]
 # pdff = pdff[:10]
