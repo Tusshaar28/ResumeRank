@@ -31,3 +31,6 @@ if st.button("Rank Resumes"):
             os.remove(pdf_path)
     else:
         st.write("Please enter a job description and upload at least one PDF file.")
+
+
+st.write("By Tushar Sharma")
