@@ -33,4 +33,4 @@ if st.button("Rank Resumes"):
         st.write("Please enter a job description and upload at least one PDF file.")
 
 
-st.write("By Tushar Sharma")
+st.write("\n\n\n\nBuilt By Tushar Sharma")
