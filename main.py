@@ -17,6 +17,7 @@ lem = WordNetLemmatizer()
 nltk.download('stopwords')
 nltk.download('wordnet')
 nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
 # paths = 'resum'
 # pdff = [os.path.join(paths,f) for f in os.listdir(paths) if f.endswith('.pdf')]
 # pdff = pdff[:10]
