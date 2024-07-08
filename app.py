@@ -7,7 +7,7 @@ st.title("Resume Ranker")
 TEMP_DIR = "temp_dir"
 os.makedirs(TEMP_DIR, exist_ok=True)
 
-jd = st.text_area("Enter the Job Description (Mention with Keywords in Titlecase)")
+jd = st.text_area("Enter the Job Description")
 pdfs = st.file_uploader("Choose PDF files", accept_multiple_files=True, type="pdf")
 top = st.number_input("Number of top resumes to display", min_value=1, step=1, value=1)
 
