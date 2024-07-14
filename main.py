@@ -14,16 +14,14 @@ from nltk.stem import PorterStemmer, WordNetLemmatizer
 #stemmer = PorterStemmer()
 lem = WordNetLemmatizer()
 
-nltk.download('stopwords')
-nltk.download('wordnet')
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
+
+
 # paths = 'resum'
 # pdff = [os.path.join(paths,f) for f in os.listdir(paths) if f.endswith('.pdf')]
 # pdff = pdff[:10]
-stp = set(stopwords.words('english'))
-
-
+stp = stopwords.words('english')
+addw = ['job', 'description', 'qualification', 'responsibility', 'requirement', 'skills']
+stp.extend(addw)
 
 def extract(pdf_path):
     text = ""
@@ -47,9 +45,9 @@ def preprocess(text):
 
 
 def custom(text):
-    pattern = r'\w*[a-zA-Z\d.+*/-/#]+\w*'
+    pattern = r'\w*[a-zA-Z\d.+*-/#]+\w*'
     tokens = re.findall(pattern, text)
-    #print(tokens)
+    # print(tokens)
     return tokens
 
 def keyextract(text):
@@ -69,18 +67,18 @@ def func(jobd,pdff):
         #print(jobd)
         # jobv = tf.fit_transform([jobd])
         jobv = cv.fit_transform(jobd)
+        # print(jobv.toarray())
 
         rank = []
 
         for pdf in pdff:
             restext = extract(pdf)
-            # print(restext)
+            #print(restext)
             fname = os.path.basename(pdf)
             #resvec = tf.transform(restext)
             resvec = cv.transform(restext)
-
-            similar = cosine_similarity(jobv,resvec)[0][0]
-            rank.append((fname,similar))
+            x=cosine_similarity(jobv,resvec)[0][0]
+            rank.append((fname,x))
 
         rank.sort(key=lambda x: x[1], reverse=True)
         return rank
